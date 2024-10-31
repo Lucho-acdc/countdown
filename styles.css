@@ -1,3 +1,17 @@
+/* Importar fuentes */
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+BE+WAL:wght@100..400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Homemade+Apple&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+RO:wght@100..400&display=swap');
+
+/* Variables de fuente */
+:root {
+  --font-principal: 'Playwrite RO', cursive;
+  --font-secundaria: 'Amatic SC', cursive;
+  --font-mensaje: 'Indie Flower', cursive;
+}
+
 /* General Reset */
 * {
     margin: 0;
@@ -7,7 +21,7 @@
 
 body, html {
     height: 100%;
-    font-family: 'Playfair Display', serif;
+    font-family: var(--font-principal); /* Usar la fuente principal */
     background-color: #000;
     color: #fff;
     display: flex;
@@ -19,7 +33,7 @@ body, html {
 
 /* Background and Overlay */
 .background {
-    /* background-image: url('your-background-image.jpg'); */
+    background-image: url('your-background-image.jpg');
     background-size: cover;
     background-position: center;
     height: 100%;
@@ -48,31 +62,33 @@ body, html {
 }
 
 h1 {
-    font-size: clamp(2rem, 5vw, 4rem); /* Tamaño flexible para pantallas */
+    font-size: clamp(2rem, 5vw, 4rem);
     margin-bottom: 10px;
     color: #fff;
+    font-family: var(--font-secundaria); /* Usar la fuente secundaria */
 }
 
 .saveTheDate {
-    font-size: clamp(1rem, 2vw, 1.5rem); /* Tamaño flexible */
+    font-size: clamp(1rem, 2vw, 1.5rem);
     margin-bottom: 30px;
     color: #fff;
+    font-family: var(--font-mensaje); /* Usar la fuente de mensaje */
 }
 
 /* Countdown Styles */
 #countdown {
     display: flex;
-    justify-content: space-between;
-    gap: 10px; /* Espacio entre los círculos */
-    margin-bottom: 50px;
-    flex-wrap: nowrap; /* Mantiene los círculos en una fila */
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 20px;
+    flex-wrap: nowrap;
 }
 
 .countdown-item {
     background-color: #fff;
     border-radius: 50%;
-    width: clamp(50px, 15vw, 100px); /* Tamaño adaptable de los círculos */
-    height: clamp(50px, 15vw, 100px);
+    width: clamp(45px, 12vw, 90px);
+    height: clamp(45px, 12vw, 90px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -83,15 +99,18 @@ h1 {
 }
 
 .number {
-    font-size: clamp(1rem, 4vw, 2rem); /* Tamaño adaptable del número */
+    font-size: clamp(1rem, 3vw, 1.8rem);
     font-weight: bold;
     margin: 0;
+    font-family: var(--font-mensaje); /* Fuente secundaria para los textos del contador */
+
 }
 
 .countdown-item p {
     margin: 0;
-    font-size: clamp(0.6rem, 2vw, 1rem); /* Tamaño adaptable del texto */
+    font-size: clamp(0.6rem, 1.5vw, 0.9rem);
     color: #333;
+    font-family: var(--font-mensaje); /* Fuente secundaria para los textos del contador */
 }
 
 /* Estilos de colores para los números del contador */
@@ -102,35 +121,37 @@ h1 {
 
 /* Estilo de la frase de inscripción */
 .registration-prompt {
-    font-size: clamp(0.8rem, 1.5vw, 1rem); /* Tamaño flexible */
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
     color: #bbb;
-    margin-top: 20px;
-    margin-bottom: 15px;
-    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 10px;
     text-align: center;
+    font-family: var(--font-mensaje); /* Fuente de mensaje */
 }
 
 /* Estilo del botón de inscripción */
 .notify-btn {
-    background-color: #ff3366;
-    color: #fff;
-    padding: 15px 30px;
+    font-size: 1rem;
+    font-family: var(--font-secundaria);
+    font-weight: 600;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 5px;
     border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: clamp(0.8rem, 2vw, 1rem); /* Tamaño flexible del texto */
-    transition: background-color 0.3s ease;
+    border-radius: 5px;
+    background-color: #9b59b6; /* Color de fondo similar */
+    box-shadow: 0 5px rgba(155, 89, 182, 0.75); /* Sombra similar */
+    transition: all 0.1s linear 0s;
+    position: relative;
     text-transform: uppercase;
     text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0px 4px 15px rgba(255, 51, 102, 0.3);
     display: inline-block;
-    margin-bottom: 30px;
 }
 
 .notify-btn:hover {
-    background-color: #ff6688;
-    box-shadow: 0px 6px 20px rgba(255, 51, 102, 0.5);
+    top: 3px; /* Movimiento al hacer hover */
+    background-color: #a569bd; /* Color de fondo más claro en hover */
+    box-shadow: none; /* Remover la sombra al hacer hover */
 }
 
 /* Bubble Container */
