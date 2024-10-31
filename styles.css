@@ -14,7 +14,7 @@ body, html {
     justify-content: center;
     align-items: center;
     text-align: center;
-    overflow: hidden; /* Ocultamos el scroll para que las burbujas floten sin cortar */
+    overflow: hidden;
 }
 
 /* Background and Overlay */
@@ -48,13 +48,13 @@ body, html {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: clamp(2rem, 5vw, 4rem); /* Tamaño flexible para pantallas */
     margin-bottom: 10px;
     color: #fff;
 }
 
 .saveTheDate {
-    font-size: 1.2rem;
+    font-size: clamp(1rem, 2vw, 1.5rem); /* Tamaño flexible */
     margin-bottom: 30px;
     color: #fff;
 }
@@ -63,88 +63,75 @@ h1 {
 #countdown {
     display: flex;
     justify-content: space-between;
-    gap: 40px;
+    gap: 10px; /* Espacio entre los círculos */
     margin-bottom: 50px;
+    flex-wrap: nowrap; /* Mantiene los círculos en una fila */
 }
 
 .countdown-item {
     background-color: #fff;
     border-radius: 50%;
-    width: 130px;
-    height: 130px;
+    width: clamp(50px, 15vw, 100px); /* Tamaño adaptable de los círculos */
+    height: clamp(50px, 15vw, 100px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    color: #000; /* Color del texto */
+    color: #000;
+    margin: 0;
 }
 
 .number {
-    font-size: 2.5rem;
+    font-size: clamp(1rem, 4vw, 2rem); /* Tamaño adaptable del número */
     font-weight: bold;
     margin: 0;
 }
 
 .countdown-item p {
     margin: 0;
-    font-size: 1.2rem;
+    font-size: clamp(0.6rem, 2vw, 1rem); /* Tamaño adaptable del texto */
     color: #333;
 }
 
 /* Estilos de colores para los números del contador */
-#days {
-    color: #ff3366;
-}
-
-#hours {
-    color: #33ccff;
-}
-
-#minutes {
-    color: #33ff99;
-}
-
-#seconds {
-    color: #ffcc33;
-}
+#days { color: #ff3366; }
+#hours { color: #33ccff; }
+#minutes { color: #33ff99; }
+#seconds { color: #ffcc33; }
 
 /* Estilo de la frase de inscripción */
 .registration-prompt {
-    font-size: 1rem;
-    color: #bbb; /* Color más tenue */
+    font-size: clamp(0.8rem, 1.5vw, 1rem); /* Tamaño flexible */
+    color: #bbb;
     margin-top: 20px;
-    margin-bottom: 15px; /* Espacio inferior para separar del botón */
-    font-family: 'Playfair Display', serif;
+    margin-bottom: 15px;
     text-transform: uppercase;
-    text-align: center; /* Alineación centrada */
+    text-align: center;
 }
 
 /* Estilo del botón de inscripción */
 .notify-btn {
     background-color: #ff3366;
     color: #fff;
-    padding: 15px 30px; /* Aumentamos el tamaño del botón */
+    padding: 15px 30px;
     border: none;
-    border-radius: 30px; /* Botón redondeado */
+    border-radius: 30px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: clamp(0.8rem, 2vw, 1rem); /* Tamaño flexible del texto */
     transition: background-color 0.3s ease;
     text-transform: uppercase;
     text-decoration: none;
     font-weight: bold;
-    box-shadow: 0px 4px 15px rgba(255, 51, 102, 0.3); /* Sombra suave */
-    display: inline-block; /* Asegura que el botón tome el tamaño del contenido */
-    margin-bottom: 30px; /* Opcional: espacio debajo del botón */
+    box-shadow: 0px 4px 15px rgba(255, 51, 102, 0.3);
+    display: inline-block;
+    margin-bottom: 30px;
 }
 
 .notify-btn:hover {
     background-color: #ff6688;
-    box-shadow: 0px 6px 20px rgba(255, 51, 102, 0.5); /* Sombra más intensa al hacer hover */
+    box-shadow: 0px 6px 20px rgba(255, 51, 102, 0.5);
 }
-
-
-
 
 /* Bubble Container */
 #bubble-container {
@@ -154,48 +141,27 @@ h1 {
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1000; /* Asegurarse de que esté muy por encima */
+    z-index: 999;
     overflow: hidden;
 }
 
-
-/* Bubbles */
 /* Bubbles */
 .bubble {
     position: absolute;
-    top: -100px; /* Las burbujas salen desde arriba */
-    background: rgba(255, 255, 255, 0.4); /* Aumenta la opacidad */
+    top: -100px;
+    background: rgba(255, 255, 255, 0.4);
     border-radius: 50%;
     opacity: 0.8;
-    animation: fall 8s ease-in-out infinite; /* Animación solo de caída */
+    animation: fall 8s ease-in-out infinite;
 }
 
-/* Colores suaves para las burbujas */
-.bubble:nth-child(2n) {
-    background-color: rgba(255, 99, 132, 0.6);
-}
-
-.bubble:nth-child(3n) {
-    background-color: rgba(54, 162, 235, 0.6);
-}
-
-.bubble:nth-child(4n) {
-    background-color: rgba(75, 192, 192, 0.6);
-}
-
-.bubble:nth-child(5n) {
-    background-color: rgba(255, 206, 86, 0.6);
-}
+.bubble:nth-child(2n) { background-color: rgba(255, 99, 132, 0.6); }
+.bubble:nth-child(3n) { background-color: rgba(54, 162, 235, 0.6); }
+.bubble:nth-child(4n) { background-color: rgba(75, 192, 192, 0.6); }
+.bubble:nth-child(5n) { background-color: rgba(255, 206, 86, 0.6); }
 
 /* Animación de caída */
 @keyframes fall {
-    0% {
-        transform: translateY(0) scale(1); /* Empiezan en la parte superior */
-        opacity: 0.8;
-    }
-    100% {
-        transform: translateY(100vh) scale(1.5); /* Caen hasta el fondo de la pantalla */
-        opacity: 0;
-    }
+    0% { transform: translateY(0) scale(1); opacity: 0.8; }
+    100% { transform: translateY(100vh) scale(1.5); opacity: 0; }
 }
-
