@@ -19,7 +19,7 @@ body, html {
 
 /* Background and Overlay */
 .background {
-    background-image: url('your-background-image.jpg');
+    /* background-image: url('your-background-image.jpg'); */
     background-size: cover;
     background-position: center;
     height: 100%;
